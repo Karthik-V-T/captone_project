@@ -1,0 +1,72 @@
+.tables {
+  margin: auto;
+  width: 80%;
+  margin-bottom: 1%;
+  background-color: #e7e9eb;
+}
+.qhead {
+  background-color: #c3f7b3;
+  width: 80%;
+  padding: 20px;
+}
+.space {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+i {
+  color: rgb(255, 255, 255);
+  margin-right: 7px;
+}
+.inputsize {
+  width: 80%;
+  height: 150px;
+  margin-left: 2%;
+  margin-bottom: 1%;
+}
+.searchdiv {
+  width: 90%;
+  border-radius: 20px;
+}
+.search {
+  width: 60%;
+}
+button {
+  border-radius: 40px;
+  background-color: #1f4043;
+  color: #ffffff;
+}
+.question {
+  font-size: 20px;
+  background-color: rgb(217 217 217);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.answer {
+  font-size: 20px;
+  text-align: center;
+}
+#dropdownMenuButton1 {
+  position: relative;
+  top: -49px;
+  left: 60%;
+  width: 167px;
+}
+.dropdown-item {
+  background-color: #ffffff;
+  color: black;
+}
+.padding17 {
+  padding-left: 17px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.fontsize {
+  font-size: 25px;
+}
+.paddingAnswer {
+  padding-left: 45px;
+}
+.questionImage{
+  width: 80%;
+}

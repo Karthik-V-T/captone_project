@@ -1,0 +1,29 @@
+.navigation {
+  width: 15%;
+  height: 100%;
+  position: absolute;
+  top: 80px;
+}
+
+.nav-link,
+.navbar-nav {
+  color: aliceblue;
+}
+.navbar {
+  align-self: center;
+  margin-left: 10%;
+}
+.searchbar {
+  position: relative;
+  left: 17%;
+}
+.myquestions {
+  position: relative;
+  left: 17%;
+}
+i {
+  margin-left: 5px;
+}
+.allQA {
+  width: 80%;
+}

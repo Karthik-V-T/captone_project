@@ -1,0 +1,21 @@
+.space {
+  margin-left: 5px;
+  font-size: 57px;
+  font-weight: 500;
+}
+
+.head {
+  background-color: #1f4043;
+}
+nav {
+  width: 90%;
+  /* background-color: #393939; */
+  margin: auto;
+}
+button {
+  border-radius: 40px;
+  background-color: #1f4043;
+  color: #ffffff;
+}
+button {
+}

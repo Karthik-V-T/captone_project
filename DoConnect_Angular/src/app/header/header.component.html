@@ -1,0 +1,110 @@
+<div class="head">
+  <nav class="navbar navbar-ligth">
+    <div class="container-fluid">
+      <a routerLink="questionanswer">
+        <img
+          src="https://img.icons8.com/external-icongeek26-flat-icongeek26/64/000000/external-chat-alert-icongeek26-flat-icongeek26.png"
+        />
+      </a>
+      <h1 style="color: rgb(252, 249, 249); margin-left: 10px" class="space">
+        Do Connect
+      </h1>
+      <div class="d-flex">
+        <button
+          (click)="userLogin()"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="btn btn-primary"
+          *ngIf="!us.isLoggedIn() && !us.isAdminLoggedIn()"
+        >
+          Sign in/Sign up
+        </button>
+        <button
+          (click)="adminlogin()"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="btn btn-primary"
+          style="margin-left: 5px"
+          *ngIf="!us.isLoggedIn() && !us.isAdminLoggedIn()"
+        >
+          Admin Sign in/Sign up
+        </button>
+        <button
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        class="btn"
+        routerLink="admindashboard"
+        *ngIf="us.isLoggedIn()"
+        style="
+          background-color: rgb(33, 17, 78);
+          color: #ffffff;
+          margin-right: 1rem;
+        "
+      >
+        {{(us.username())}}
+        </button>
+
+        <button
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        class="btn"
+        routerLink="admindashboard"
+        *ngIf="us.isAdminLoggedIn()"
+        style="
+          background-color: rgb(33, 17, 78);
+          color: #ffffff;
+          margin-right: 1rem;
+        "
+      >
+        {{(us.adminname())}}
+        </button>
+
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="btn"
+          routerLink="userdashboard"
+          *ngIf="us.isLoggedIn()"
+          style="
+            background-color: rgb(33, 17, 78);
+            color: #ffffff;
+            margin-right: 1rem;
+          "
+        >
+          Dash Board
+        </button>
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="btn"
+          routerLink="admindashboard"
+          *ngIf="us.isAdminLoggedIn()"
+          style="
+            background-color: rgb(33, 17, 78);
+            color: #ffffff;
+            margin-right: 1rem;
+          "
+        >
+          Admin Dash Board
+        </button>
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="btn btn-success"
+          (click)="logout()"
+          *ngIf="us.isLoggedIn() || us.isAdminLoggedIn()"
+          style="background-color: red"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>

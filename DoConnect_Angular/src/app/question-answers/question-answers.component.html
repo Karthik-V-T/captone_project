@@ -1,0 +1,129 @@
+<table class="table mt-2 space">
+  <thead>
+    <th scope="col">
+      <div style="background-color: rgb(36 71 77)" class="searchdiv">
+        <i class="bi bi-search"></i>
+
+        <input
+          type="text"
+          placeholder="Search"
+          class="search"
+          [(ngModel)]="filterTerm"
+        />
+      </div>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          [(ngModel)]="topic.cetegory"
+        >
+          Topic
+        </button>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li *ngFor="let topic of filterData">
+            <button class="dropdown-item" (click)="selectTopic(topic.topicid)">
+              {{ topic.cetegory }}
+            </button>
+          </li>
+          <li>
+            <button class="dropdown-item">
+              Other
+              <input
+                type="text"
+                [(ngModel)]="topic.cetegory"
+                autocapitalize="words"
+              />
+              <button (click)="addTopic()">Add Topic</button>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </th>
+    <th scope="col" style="text-align: right">
+      <button
+        (click)="askQuestion()"
+        class="btn"
+        class="btn"
+        type="button"
+        data-bs-target="#exampleModal"
+      >
+        Ask a question
+      </button>
+    </th>
+  </thead>
+</table>
+
+<table
+  style="background-color: #050936; color: white"
+  *ngFor="let question of questions | filter: filterTerm"
+  class="tables"
+>
+  <tbody>
+    <td>
+      <p style="color: rgb(254 121 126)" class="padding17 fontsize">
+        <img
+          style="height: 30px"
+          src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-user-interface-kiranshastry-lineal-color-kiranshastry-1.png"
+        />
+        {{ question.user.username }}
+      </p>
+    </td>
+  </tbody>
+ 
+  <tbody>
+    <td style="font-size: 28px" class="padding17">
+      {{ question.questionname }}
+    </td>
+    <td style="text-align: right">
+      <button style="margin-right: 40px" (click)="showAnswerList(question.id)">
+        <h5>View Answers</h5>
+      </button>
+    </td>
+  </tbody>
+  <tbody *ngIf="question.questionimage != ''">
+    <td style="text-align: center;">
+    <img class="questionImage" src={{baseUrl}}{{question.questionimage}} alt="image">
+    </td>
+  </tbody>
+  <tbody *ngFor="let answer of answers">
+    <td *ngIf="viewAnswers === question.id" class="padding17">
+      <p class="padding17">{{ answer.user.username }} :</p>
+      <p class="paddingAnswer">
+        {{ answer.answername }}
+      </p>
+    </td>
+  </tbody>
+  <tbody *ngIf="viewAnswers === question.id">
+    <td class="padding17" *ngIf="answers.length===0" style="text-align: center;">
+      There are no answers for this question. Be the 1st one to answer
+    </td>
+  </tbody>
+  <tbody *ngIf="viewAnswers === question.id">
+    <td class="padding17">
+      <textarea class="padding17"
+        [(ngModel)]="answer.answername"
+        name="answer.answername"
+        id=""
+        cols="20"
+        rows="5"
+        style="
+          width: 43rem;
+          height: 2rem;
+          background-color: #2f5b5c;
+          color: #ffffff;
+        "
+      ></textarea>
+      <button class="padding17"
+        style="position: relative; margin-bottom: 9px; left: 10px; top: -9px"
+        (click)="postAnswer(question)"
+      >
+        POST YOUR ANSWER
+      </button>
+    </td>
+    <td></td>
+  </tbody>
+</table>

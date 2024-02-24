@@ -1,0 +1,42 @@
+<div class="questionstable">
+  <table class="table mt-2 space shadow table-hover">
+    <thead>
+      <th scope="col">User</th>
+      <th scope="col">Question Id</th>
+      <th>Cetogary</th>
+      <th scope="col">Question</th>
+      <th scope="col">Status</th>
+      <tr *ngFor="let question of userQuestions">
+        <td>
+          {{ question.user.username }}
+        </td>
+        <td>
+          {{ question.id }}
+        </td>
+        <td>
+          {{ question.topic.cetegory }}
+        </td>
+        <td>
+          {{ question.questionname }}
+        </td>
+        <td>
+          <button *ngIf="question.qstatus == 0">
+            <img
+              src="https://img.icons8.com/material-rounded/24/26e07f/checked-checkbox.png"
+            /></button
+          >|
+          <button *ngIf="question.qstatus == 1">
+            <img
+              src="https://img.icons8.com/ios-filled/50/4a90e2/data-pending.png"
+            />
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf='userQuestions.length==0'>
+        <td style="text-align: center;" colspan="5">
+          Your Questions appear here
+        </td>
+      </tr>
+    </thead>
+  </table>
+</div>

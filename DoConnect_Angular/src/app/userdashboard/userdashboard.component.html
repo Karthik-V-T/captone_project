@@ -1,0 +1,125 @@
+<div class="searchbar">
+  <table class="table mt-2 space">
+    <thead>
+      <th scope="col">
+        <div>
+          <input
+            type="text"
+            placeholder="Search"
+            style="background-color: 0e3f99"
+          />
+          <i class="bi bi-search" style="margin-left: 1rem"></i>
+        </div>
+      </th>
+      <th scope="col">
+        <button
+          (click)="navSelection('')"
+          class="askQuestion btn"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Ask a question
+        </button>
+      </th>
+    </thead>
+  </table>
+</div>
+<div class="navigation">
+  <nav class="navbar">
+    <ul class="navbar-nav">
+      <h2>WelCome</h2>
+      <li class="nav-item">
+        <button class="nav-link btn" (click)="navSelection('myquestions')">
+          Your Questions
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn" (click)="navSelection('myanswers')">
+          Your Answers
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn" (click)="navSelection('mychat')">
+          My Chat
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="myquestions">
+  <app-myquestions *ngIf="navSelected === 'myquestions'"></app-myquestions>
+
+  <app-myanswers *ngIf="navSelected === 'myanswers'"></app-myanswers>
+
+  <app-chat *ngIf="navSelected === 'mychat'"></app-chat>
+</div>
+
+<div class="modal-body" *ngIf="navSelected === ''">
+  <form (submit)="postQuestion()">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Select Topic</label>
+      <select
+        [(ngModel)]="topic.topicid"
+        class="form-control"
+        id="exampleFormControlSelect1"
+        placeholder="select"
+        name="topicid"
+        style="background-color: #0e3f99; color: #ffffff"
+        required
+      >
+        <option *ngFor="let topic of filterData" [value]="topic.topicid">
+          {{ topic.cetegory }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Question</label>
+      <textarea
+        [(ngModel)]="question.questionname"
+        name="question.questionname"
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="inlineCheckbox1"
+        value="option1"
+      />
+      <label class="form-check-label" for="inlineCheckbox1"
+        >Question Imgae</label
+      >
+    </div>
+
+    <div class="form-group">
+      <input
+        type="file"
+        accept="image/*"
+        class="form-control-file"
+        id="exampleFormControlFile1"
+        (change)="onSelect($event)"
+        style="color: #fa6974"
+      />
+    </div>
+    <div>
+      <button
+        style="
+          border-radius: 40px;
+          background-color: #1f4043;
+          color: #ffffff;
+          margin-top: 10px;
+        "
+        type="submit"
+      >
+        Post your Question
+      </button>
+    </div>
+  </form>
+</div>

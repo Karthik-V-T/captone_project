@@ -1,0 +1,123 @@
+<div class="login-page">
+  <div style="margin-left: 65%; margin-top: 10%">
+    <button
+      class="mat-elevation-z12"
+      color="warn"
+      mat-raised-button
+      (click)="viewQA()"
+    >
+      <i class="bi bi-arrow-left"></i>
+      View Q&A
+    </button>
+  </div>
+  <mat-card class="mat-elevation-z12">
+    <mat-card-title style="text-align: center">SignIn/SignUp</mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+      <mat-tab label="Sign In">
+        <mat-card-content>
+          <form #userform="ngForm" (ngSubmit)="login()">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Email"
+                required
+                [(ngModel)]="loginUser.email"
+                name="email"
+                #email="ngModel"
+              />
+              <mat-error *ngIf="email.invalid">Email is required</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Password"
+                type="password"
+                required
+                minlength="4"
+                [(ngModel)]="loginUser.password"
+                name="password"
+                #password="ngModel"
+              />
+              <mat-error *ngIf="password.errors && password.errors.required">
+                Password is required
+              </mat-error>
+              <mat-error *ngIf="password.errors && password.errors.minlength">
+                Password must be of length 4
+              </mat-error>
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+            <button
+              mat-raised-button
+              type="submit"
+              [disabled]="userform.form.invalid"
+              color="primary"
+              class="login-button"
+            >
+              Sign In
+            </button> 
+          </form>
+        </mat-card-content>
+      </mat-tab>
+      <mat-tab label="Sign Up">
+        <mat-card-content>
+          <form #newUserform="ngForm" (ngSubmit)="register()">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="User Name"
+                required
+                [(ngModel)]="newUser.username"
+                name="name"
+                #username="ngModel"
+              />
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error *ngIf="username.invalid">
+                Username is required
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Email"
+                required
+                [(ngModel)]="newUser.email"
+                name="email"
+                #email="ngModel"
+              />
+              <mat-error *ngIf="email.invalid">Email is required</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Password"
+                type="password"
+                required
+                minlength="4"
+                [(ngModel)]="newUser.password"
+                name="password"
+                #password="ngModel"
+              />
+              <mat-error *ngIf="password.errors && password.errors.minlength">
+                Password must be of minimum length 4
+              </mat-error>
+              <mat-error *ngIf="password.errors && password.errors.required">
+                Password is required
+              </mat-error>
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+            <button
+              mat-raised-button
+              [disabled]="newUserform.form.invalid"
+              color="primary"
+              class="login-button"
+            >
+              Sign Up
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

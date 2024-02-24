@@ -1,0 +1,37 @@
+.navigation {
+  width: 15%;
+  height: 100%;
+  position: absolute;
+  top: 80px;
+}
+
+.nav-link,
+.navbar-nav {
+  color: aliceblue;
+}
+.navbar {
+  align-self: center;
+  margin-left: 10%;
+}
+.searchbar {
+  position: relative;
+  left: 17%;
+}
+.myquestions {
+  position: relative;
+  left: 17%;
+}
+.modal-body {
+  position: relative;
+  left: 16%;
+  width: 650px;
+}
+.askQuestion {
+  border-radius: 40px;
+  background-color: #1f4043;
+  color: #ffffff;
+}
+.form-control {
+  color: #ffffff;
+  background-color: #092065;
+}

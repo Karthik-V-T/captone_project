@@ -1,0 +1,40 @@
+<div class="questionstable">
+  <table class="table mt-2 space table-hover">
+    <thead>
+      <th scope="col">User</th>
+      <th scope="col">Question Id</th>
+      <th>Cetogary</th>
+      <th scope="col">Question</th>
+      <th scope="col">Actions</th>
+      <tr *ngFor="let question of pendingQuestions">
+        <td>
+          {{ question.user.username }}
+        </td>
+        <td>
+          {{ question.id }}
+        </td>
+        <td>
+          {{ question.topic.cetegory }}
+        </td>
+        <td>
+          {{ question.questionname }}
+        </td>
+        <td>
+          <button (click)="approveQuestion(question)">
+            <img
+              src="https://img.icons8.com/material-rounded/24/26e07f/checked-checkbox.png"
+            /></button
+          >|
+          <button (click)="deleteQuestion(question)">
+            <img src="https://img.icons8.com/fluency/64/000000/cancel.png" />
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" style="text-align: center;">
+        <span *ngIf="pendingQuestions.length === 0"> No Pending Questions. </span>
+      </td>
+      </tr>
+    </thead>
+  </table>
+</div>

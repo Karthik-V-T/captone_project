@@ -1,0 +1,26 @@
+<br />
+<div class="navigation">
+  <nav class="navbar">
+    <ul class="navbar-nav">
+      <h2>WelCome</h2>
+      <li class="nav-item">
+        <button class="nav-link btn" (click)="navSelection('pendingquestions')">
+          Pending Questions
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn" (click)="navSelection('pendinganswers')">
+          Pending Answers
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="myquestions">
+  <app-pendinganswers
+    *ngIf="navSelected === 'pendinganswers'"
+  ></app-pendinganswers>
+  <app-pendingquestions
+    *ngIf="navSelected === 'pendingquestions'"
+  ></app-pendingquestions>
+</div>

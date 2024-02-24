@@ -1,0 +1,16 @@
+.questionstable {
+  background-color: #e7e9eb;
+  width: 80%;
+  text-align: center;
+}
+th,
+tr {
+  padding: 15px;
+}
+img {
+  height: 30px;
+}
+button {
+  border-color: #e7e9eb;
+  background-color: #e7e9eb;
+}
